@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Evaluation_Manager.Models;
+using Evaluation_Manager.Repositories;
 
 namespace Evaluation_Manager
 {
@@ -16,5 +18,10 @@ namespace Evaluation_Manager
         {
             InitializeComponent();
         }
-    }
+
+		private void FrmStudents_Load(object sender, EventArgs e) {
+            List<Student> students = StudentRepository.GetStudents();
+            dgvStudents.DataSource = students;
+		}
+	}
 }
